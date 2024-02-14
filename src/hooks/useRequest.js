@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 
-const useRequest = ({url,method}) => {
+const useRequest = ({url, method}) => {
     const [loading, setLoading]=useState(false)
     
-    const  sendRequest = async (body) => {
+    const  sendRequest = async (body, custom) => {
         setLoading(true)
 
-        const res = await fetch(url, {
+        const res = await fetch(url || custom, {
             method, 
             headers:{
                 "Content-Type": "application/json",

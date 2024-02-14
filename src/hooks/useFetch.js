@@ -7,7 +7,7 @@ const useFetch = ({url, method}) => {
 
     useEffect(() => {
         setLoading(true)
-        fetch({url},{
+        fetch(url,{
             method,
             headers:{
               "Content-Type": "application/json",
@@ -15,6 +15,7 @@ const useFetch = ({url, method}) => {
             }
           })
             .then(res => {
+                // console.log(res)
                 if(!res.ok) throw new Error("Response failed")
                 return res.json()
             })
