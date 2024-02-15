@@ -9,7 +9,7 @@ const UpdatePage = () => {
   const {userId} = useParams()
   const {response, loading, error} = useFetch({url: `/api/v1/users/${userId}`, method: "GET"})
 
-  const {sendRequest} =useRequest({url: `/api/v1/users${userId}`, method: "PUT"})
+  const {sendRequest} =useRequest({url: `/api/v1/users/${userId}`, method: "PUT"})
 
   const onSubmit = (firstName, lastName) => {
     sendRequest({firstName, lastName})

@@ -3,9 +3,9 @@ import useFetch from '../hooks/useFetch'
 import { Link } from 'react-router-dom'
 import useRequest from '../hooks/useRequest'
 
-const MainPages = () => {
+const MainPage = () => {
   const {sendRequest} = useRequest({method :'DELETE'})
-  const {response, error, loading} =useFetch({url:'/api/v1/users', method: "GET" })
+  const {response, error, loading, resendRequest} =useFetch({url:'/api/v1/users', method: "GET" })
   const userList = response?.items.map(user => {
     return{
       firstName: user.firstName,
@@ -19,7 +19,7 @@ const MainPages = () => {
   
 
   const onDelete = (userId) => {
-    sendRequest(null, `/api/v1/users${userId}`)
+    sendRequest(null, `/api/v1/users/${userId}`).then(()=>resendRequest())
   }
 
   return (
@@ -34,4 +34,4 @@ const MainPages = () => {
   )
 }
 
-export default MainPages
+export default MainPage

@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 
 const UserForm = ({onFormSubmit, firstName, lastName}) => {
-    const firstNameRef =useRef()
+    const firstNameRef = useRef()
     const lastNameRef = useRef()  
     
     const onSubmit =(e) =>{
